@@ -28,6 +28,12 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        nfc.addNdefListener(callback, function(e){
+            var f = toString(e);
+            swal(e);
+        }, function(e){
+            console.log('Error : ',e);
+        });
     },
 
     // Update DOM on a Received Event
